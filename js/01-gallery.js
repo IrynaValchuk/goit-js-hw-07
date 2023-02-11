@@ -26,7 +26,16 @@ const onImageChangeSizeClick = e => {
 
   if (e.target.nodeName !== 'IMG') return;
 
-  const instance = basicLightbox.create(`<img src="${e.target.dataset.source}">`);
+  const instance = basicLightbox.create(`<img src="${e.target.dataset.source}">`, {
+    onShow: () => window.addEventListener('keydown', onEscKeyDown),
+    onClose: () => window.removeEventListener('keydown', onEscKeyDown),
+  });
+
+  const onEscKeyDown = e => {
+    if (e.code === 'Escape') {
+      instance.close();
+    }
+  };
 
   instance.show();
 };
