@@ -18,3 +18,5 @@ const createImagesGallery = galleryItems
   .join('');
 
 galleryList.insertAdjacentHTML('afterbegin', createImagesGallery);
+
+const lightbox = new SimpleLightbox('.gallery .gallery__item', {});
