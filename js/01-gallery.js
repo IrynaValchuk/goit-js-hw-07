@@ -24,11 +24,11 @@ galleryList.insertAdjacentHTML('afterbegin', createImagesGallery);
 const onImageChangeSizeClick = e => {
   e.preventDefault();
 
-  if (e.target.nodeName !== 'IMG') {
-    return;
-  } else {
-    console.log(e.target.dataset.source);
-  }
+  if (e.target.nodeName !== 'IMG') return;
+
+  const instance = basicLightbox.create(`<img src="${e.target.dataset.source}">`);
+
+  instance.show();
 };
 
 galleryList.addEventListener('click', onImageChangeSizeClick);
