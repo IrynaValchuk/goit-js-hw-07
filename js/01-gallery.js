@@ -20,3 +20,15 @@ const createImagesGallery = galleryItems
   .join('');
 
 galleryList.insertAdjacentHTML('afterbegin', createImagesGallery);
+
+const onImageChangeSizeClick = e => {
+  e.preventDefault();
+
+  if (e.target.nodeName !== 'IMG') {
+    return;
+  } else {
+    console.log(e.target.dataset.source);
+  }
+};
+
+galleryList.addEventListener('click', onImageChangeSizeClick);
